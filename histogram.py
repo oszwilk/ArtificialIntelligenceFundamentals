@@ -24,7 +24,7 @@ rects1 = ax.bar(x, file_count, width)
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Ilość')
 ax.set_title('Histogram')
-ax.set_xticks(x, dir_names)
+ax.set_xticks(x, dir_names,  rotation=90)
 
 fig.tight_layout()
 
