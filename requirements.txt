@@ -1,5 +1,7 @@
-numpy
-pandas
-matplotlib
-scikit-image
-tensorflow
+tensorflow-gpu==2.5
+tensorflow==2.5
+keras 
+sklearn 
+matplotlib 
+pandas 
+Pillow
