@@ -40,7 +40,7 @@ y_t1 = to_categorical(y_t1, classes)
 y_t2 = to_categorical(y_t2, classes)
 
 #Building the model
-model = Sequential()
+model = Sequential() # sequelntial otrzymuje dane kiedy wywołujemy funkcję celu na niej
 model.add(Conv2D(filters=32, kernel_size=(5,5), activation='relu', input_shape=X_t1.shape[1:]))   #X_train.shape[1:]))
 model.add(Conv2D(filters=32, kernel_size=(5,5), activation='relu'))
 model.add(MaxPool2D(pool_size=(2, 2)))
@@ -56,6 +56,7 @@ model.add(Dense(classes, activation='softmax'))
 #Compilation of the model
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
+model.summary()
 eps = 2#15
 anc = model.fit(X_t1, y_t1, batch_size=32, epochs=eps, validation_data=(X_t2, y_t2))
 
