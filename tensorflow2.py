@@ -13,14 +13,14 @@ data = []
 labels = []
 cur_path = os.path.join(os.getcwd(), 'data')
 classes = len( os.listdir(os.path.join(cur_path, 'train')) )  #43 
-
+imgSize = 30
 for i in range(classes):
     path = os.path.join(cur_path,'train', str(i)) 
     images = os.listdir(path) 
     for a in images:
         try: 
             image = Image.open(path + "\\"+ a) 
-            image = image.resize((30,30)) 
+            image = image.resize((imgSize,imgSize)) 
             image = np.array(image) 
             data.append(image) 
             labels.append(i) 
@@ -93,7 +93,7 @@ path = os. path.join(cur_path,'test', str(i))
 # for img in imgs:
 #    #image = Image.open(img)
 #    image = Image.open(path + "\\"+ img) 
-#    image = image.resize((30,30))
+#    image = image.resize((imgSize,imgSize))
 #    data.append(np.array(image))
    
    
@@ -104,14 +104,14 @@ for i in range(classes):
     imageName = os.listdir(path)[0]
     
     image = Image.open(path + "\\"+ imageName) 
-    image = image.resize((30,30)) 
+    image = image.resize((imgSize,imgSize)) 
     image = np.array(image) 
     data.append(image)
 
     # for a in images:
     #     try: 
     #         image = Image.open(path + "\\"+ a) 
-    #         image = image.resize((30,30)) 
+    #         image = image.resize((imgSize,imgSize)) 
     #         image = np.array(image) 
     #         data.append(image)
     #         labels2.append(i)
