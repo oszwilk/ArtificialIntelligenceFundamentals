@@ -17,12 +17,11 @@ sign_image = Label(top)
 def classify(file_path):
    global label_packed
    image = Image.open(file_path)
-   image = image.resize((30,30))
+   image = image.resize((64,64))
    image = numpy.expand_dims(image, axis=0)
    image = numpy.array(image)
    
-   pred = model.predict_classes([image])[0]
-    #pred tj klasa
+   pred = numpy.argmax(model.predict(image), axis=-1)
 
    print(pred)
    label.configure(foreground='#011638', text=pred)
